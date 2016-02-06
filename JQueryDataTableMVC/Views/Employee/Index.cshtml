@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    .table {
+        font-family: Vardana;
+        font-size: 15px;
+        font-weight: normal;
+        display: table;
+        border-collapse: collapse;
+        border: solid px #C5C5C5;
+    }
+
+        .table td, th {
+            border: 1px solid #C5C5C5;
+            padding: 3px 7px 2px;
+            background-color: #C5C5C5;
+            color: #ffffff;
+        }
+        .table td {
+            border: 1px solid #C5C5C5;
+            background-color: #C5C5C5;
+            color: #000000;
+            font-family: Vardana;
+        }
+    
+</style>
+
+<h2>Index</h2>
+
+<table id="tblEmployee" class="display" cellspacing="0" data-page-length='5'>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+    </thead>
+</table>  
+<div style="width:300;">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tblEmployee').DataTable({
+                "searching": true,
+                "ordering": true,
+                "pagingType": "full_numbers",
+                "ajax": "http://localhost:58793/Employee/getEmployees",
+                "columns": [
+                    { "data": "Name" },
+                    { "data": "Designation" },
+                    { "data": "Gender" },
+                    { "data": "Salary" },
+                    { "data": "City" },
+                    { "data": "State" },
+                    { "data": "Zip" }
+                ]
+            });
+        });
+    </script>
+</div> 
